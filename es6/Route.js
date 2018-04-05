@@ -1,3 +1,9 @@
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
@@ -18,26 +24,31 @@ var string = PropTypes.string,
  * rendered into the DOM, nested in the same order as in the tree.
  */
 
-var Route = React.createClass({
-  displayName: 'Route',
+var Route = function (_React$Component) {
+  _inherits(Route, _React$Component);
 
+  function Route() {
+    _classCallCheck(this, Route);
 
-  statics: {
-    createRouteFromReactElement: createRouteFromReactElement
-  },
-
-  propTypes: {
-    path: string,
-    component: component,
-    components: components,
-    getComponent: func,
-    getComponents: func
-  },
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
 
   /* istanbul ignore next: sanity check */
-  render: function render() {
+  Route.prototype.render = function render() {
     !false ? process.env.NODE_ENV !== 'production' ? invariant(false, '<Route> elements are for router configuration only and should not be rendered') : invariant(false) : void 0;
-  }
-});
+  };
+
+  return Route;
+}(React.Component);
+
+Route.createRouteFromReactElement = createRouteFromReactElement;
+Route.propTypes = {
+  path: string,
+  component: component,
+  components: components,
+  getComponent: func,
+  getComponents: func
+};
+
 
 export default Route;
